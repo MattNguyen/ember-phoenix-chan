@@ -14,7 +14,7 @@ PhoenixService = Ember.Service.extend
   Ajax: Ajax
   isConnected: equal "connectionState", "open"
   p: computed get: RSVP.resolve @
-  
+
   init: ->
     @_super arguments...
     @updateStatus()
@@ -36,7 +36,7 @@ PhoenixService = Ember.Service.extend
       socket = new Socket(endpoint, params)
       @set "socket", socket
       update = @updateStatus.bind(@)
-      socket.onMessage update 
+      socket.onMessage update
       socket.onClose update
       socket.onError update
       socket.onOpen update
